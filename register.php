@@ -21,19 +21,20 @@ if ($password == $repassword) {
     if (mysqli_num_rows($query)) {
         $data = array(
             'message' => "Email has been taken!",
+            'data'=> $query,
             'status'  => "409",
         );
     } else {
-        $query = mysqli_query($connect, "INSERT INTO users (name,email,password) VALUES ('$name','$email','$encrypt_password')");
+        $query_insert = mysqli_query($connect, "INSERT INTO users (name,email,password) VALUES ('$name','$email','$encrypt_password')");
         $data  = array(
             'message' => "Your account is success created !",
+            'data'=> $query_insert,
             'status'  => "200",
         );
     }
-
 } else {
     $data = array(
-        'message' => "Your password is not match !",
+        'messge' => "Your password is not match !",
         'status'  => "400",
     );
 }
