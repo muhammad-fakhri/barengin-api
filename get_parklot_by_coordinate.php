@@ -10,7 +10,7 @@ if(isset($coor)){
         $result =mysqli_fetch_assoc($query);
         $data = array(
             'message' => "Data tempat parkirnya nya nih !",
-            'data'    => $result,
+            'data'    => $result['ParkLotId'],
             'status'  => "200",
         );
     } else {
