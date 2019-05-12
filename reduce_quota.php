@@ -5,7 +5,8 @@ if(isset($_GET['coordinate'])){
     $coor = $_GET['coordinate'];
 }   
 if(isset($coor)){
-    $query = mysqli_query($connect, "SELECT * FROM park_lot WHERE ParkLotCoor='$coor'");
+    $query = mysqli_query($connect, 
+    "SELECT * FROM park_lot WHERE ParkLotCoor='$coor'");
     if (mysqli_num_rows($query)) {
         $result =mysqli_fetch_assoc($query);   
         $id = $result['ParkLotId']; 
