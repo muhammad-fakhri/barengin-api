@@ -12,6 +12,7 @@ if (isset($id)) {
     if (mysqli_num_rows($query_select)) {
         $row   = mysqli_fetch_assoc($query_select);
         $query = mysqli_query($connect, "DELETE FROM users WHERE id='$id'");
+        $query2 = mysqli_query($connect, "DELETE FROM park_history WHERE user_id='$id'");
         $data  = array(
             'message' => "Data berhasil dihapus",
             'data'    => $row,
